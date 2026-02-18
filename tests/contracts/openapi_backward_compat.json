@@ -1,0 +1,78 @@
+{
+  "api_version": "1.0.0",
+  "required_paths": {
+    "/api/auth/register": [
+      "post"
+    ],
+    "/api/auth/login": [
+      "post"
+    ],
+    "/api/auth/refresh": [
+      "post"
+    ],
+    "/api/auth/logout": [
+      "post"
+    ],
+    "/api/auth/me": [
+      "get"
+    ],
+    "/api/tasks": [
+      "get",
+      "post"
+    ],
+    "/api/tasks/{task_id}": [
+      "get",
+      "put",
+      "delete"
+    ],
+    "/api/health/live": [
+      "get"
+    ],
+    "/api/health/ready": [
+      "get"
+    ],
+    "/api/admin/users": [
+      "get"
+    ],
+    "/api/admin/users/{user_id}/role": [
+      "patch"
+    ],
+    "/api/admin/users/{user_id}/status": [
+      "patch"
+    ],
+    "/api/admin/stats": [
+      "get"
+    ],
+    "/api/metrics": [
+      "get"
+    ]
+  },
+  "required_schemas": {
+    "ErrorResponse": [
+      "detail",
+      "error_code"
+    ],
+    "UserResponse": [
+      "id",
+      "email",
+      "role",
+      "is_active",
+      "created_at"
+    ],
+    "TaskResponse": [
+      "id",
+      "user_id",
+      "title",
+      "status",
+      "priority",
+      "created_at",
+      "updated_at"
+    ],
+    "Token": [
+      "access_token",
+      "refresh_token",
+      "token_type"
+    ]
+  }
+}
+
