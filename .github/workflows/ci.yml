@@ -116,7 +116,7 @@ jobs:
         run: docker compose up --build -d
 
       - name: Run E2E Tests
-        run: docker compose exec -T api sh -lc "E2E_BASE_URL=http://localhost:8000 pytest -q -m e2e tests/e2e"
+        run: docker compose exec -T api sh -lc "E2E_ENABLED=1 E2E_BASE_URL=http://localhost:8000 pytest -q -m e2e tests/e2e"
 
       - name: Show Logs On Failure
         if: failure()
