@@ -23,7 +23,14 @@ def add_security_headers(response: Response) -> None:
     response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
     response.headers.setdefault("X-XSS-Protection", "1; mode=block")
     response.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
-    response.headers.setdefault("Content-Security-Policy", "default-src 'self'; frame-ancestors 'none';")
+    response.headers.setdefault(
+        "Content-Security-Policy",
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' cdn.jsdelivr.net; "
+        "style-src 'self' 'unsafe-inline' cdn.jsdelivr.net; "
+        "img-src 'self' data: fastapi.tiangolo.com; "
+        "frame-ancestors 'none';",
+    )
     if settings.ENABLE_HSTS:
         response.headers.setdefault("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
